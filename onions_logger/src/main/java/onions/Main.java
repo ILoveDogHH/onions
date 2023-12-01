@@ -8,6 +8,7 @@ public class Main {
 
     public static void main(String[] args){
         JLogger.error("c" , new Exception("cc"));
-        JLogger.info("userInfos sacsafasdf");
+        JLogger.info("WErewewqewweerqwerr");
+        JLogger.debug("cccccc");
     }
 }

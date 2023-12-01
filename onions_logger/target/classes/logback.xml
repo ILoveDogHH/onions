@@ -34,8 +34,29 @@
     </appender>
 
 
+    <!-- 特定的logger用于ERROR级别的日志 -->
+    <logger name="errorLogger" level="ERROR" additivity="false">
+        <appender-ref ref="errorLogger"/>
+        <appender-ref ref="debugLogger"/>
+    </logger>
+
+    <logger name="infoLogger" level="INFO" additivity="false">
+        <appender-ref ref="infoLogger"/>
+        <appender-ref ref="debugLogger"/>
+    </logger>
+
+    <logger name="cronLogger" level="INFO" additivity="false">
+        <appender-ref ref="cronLogger"/>
+        <appender-ref ref="debugLogger"/>
+    </logger>
+
+    <logger name="debugLogger" level="DEBUG" additivity="false">
+        <appender-ref ref="debugLogger"/>
+    </logger>
+
+
     <!-- 只有一个root标签，设置为捕获最低级别的日志 -->
-    <root level="ERROR">
+    <root level="DEBUG">
         <appender-ref ref="debugLogger"/>
         <appender-ref ref="infoLogger"/>
         <appender-ref ref="cronLogger"/>
