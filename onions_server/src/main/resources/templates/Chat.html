@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Interface</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            overflow-y: auto;
+        }
+        .chat-area {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-messages {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            border-left: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+        }
+        .chat-input {
+            border-top: 1px solid #ccc;
+            padding: 10px;
+            display: flex;
+        }
+        .input-field {
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+        .send-button {
+            padding: 10px 20px;
+            background-color: #00bfff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .send-button:hover {
+            background-color: #009bdd;
+        }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <!-- Users or chat rooms can be listed here -->
+</div>
+
+<div class="chat-area">
+    <div class="chat-messages">
+        <!-- Chat messages will be displayed here -->
+    </div>
+    <div class="chat-input">
+        <input class="input-field" type="text" placeholder="Type your message here...">
+        <button class="send-button">Send</button>
+    </div>
+</div>
+
+</body>
+</html>
