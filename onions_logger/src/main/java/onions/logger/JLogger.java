@@ -46,4 +46,35 @@ public class JLogger{
         LoggerManager.error(s, e);
     }
 
+    /**
+     * fileName 文件夹
+     * logName 文件名
+     * msg msg
+     * o 参数
+     * @param fileName
+     * @param logName
+     * @param msg
+     * @param o
+     */
+    public static void dayLog(String fileName, String logName, String msg, Object... o){
+        String filePath = LoggerManager.getFilePath(fileName);
+        LoggerManager.writeLoggerWithDay(logName, filePath, 0, msg, o);
+    }
+
+
+    /**
+     * fileName 文件夹
+     * logName 文件名
+     * msg msg
+     * o 参数
+     * @param fileName
+     * @param logName
+     * @param msg
+     * @param o
+     */
+    public static void dayLogDelay(String fileName, String logName, String msg, Object... o){
+        String filePath = LoggerManager.getFilePath(fileName);
+        LoggerManager.writeLoggerWithDay(logName, filePath, 15, msg, o);
+    }
+
 }

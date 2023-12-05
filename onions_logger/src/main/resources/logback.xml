@@ -1,60 +1,80 @@
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
 
     <!-- 控制台Appender用于DEBUG级别日志 -->
-    <appender name="debugLogger" class="ch.qos.logback.core.ConsoleAppender">
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
 
 
-    <appender name="infoLogger" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="infoAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>info.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>logs/error.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>logs/info.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <maxFileSize>100MB</maxFileSize>
         </rollingPolicy>
+
+        <!-- 添加的编码器部分 -->
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
     </appender>
 
-    <appender name="cronLogger" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+    <appender name="cronAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>cron.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>logs/error.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>logs/cron.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <maxFileSize>100MB</maxFileSize>
         </rollingPolicy>
+
+        <!-- 添加的编码器部分 -->
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
     </appender>
 
 
-    <appender name="errorLogger" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+
+    <appender name="errorAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>error.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <fileNamePattern>logs/error.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <maxFileSize>100MB</maxFileSize>
         </rollingPolicy>
+
+        <!-- 添加的编码器部分 -->
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
     </appender>
 
 
     <!-- 特定的logger用于ERROR级别的日志 -->
     <logger name="errorLogger" level="ERROR" additivity="false">
-        <appender-ref ref="errorLogger"/>
-        <appender-ref ref="debugLogger"/>
+        <appender-ref ref="errorAppender"/>
+        <appender-ref ref="consoleAppender"/>
     </logger>
 
     <logger name="infoLogger" level="INFO" additivity="false">
-        <appender-ref ref="infoLogger"/>
+        <appender-ref ref="infoAppender"/>
+        <appender-ref ref="consoleAppender"/>
     </logger>
 
     <logger name="cronLogger" level="INFO" additivity="false">
-        <appender-ref ref="cronLogger"/>
+        <appender-ref ref="cronAppender"/>
+        <appender-ref ref="consoleAppender"/>
     </logger>
 
     <logger name="debugLogger" level="DEBUG" additivity="false">
-        <appender-ref ref="debugLogger"/>
+        <appender-ref ref="consoleAppender"/>
     </logger>
 
 
     <!-- 只有一个root标签，设置为捕获最低级别的日志 -->
-    <root level="DEBUG">
+    <root level="ERROR">
         <appender-ref ref="debugLogger"/>
         <appender-ref ref="infoLogger"/>
         <appender-ref ref="cronLogger"/>
