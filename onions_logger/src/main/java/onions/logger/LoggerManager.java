@@ -70,10 +70,11 @@ public class LoggerManager {
      * @param o
      */
     protected static void writeLoggerWithDay(String logName, String filePath, int dayRelay,String s, Object... o){
-        Logger logger = (Logger) LoggerFactory.getLogger(logName);
+        Logger logger = (Logger) LoggerFactory.getLogger(getLoggerName(logName));
         if(logger == null){
             logger = createLogger(logName, filePath, dayRelay);
         }
+        logger = createLogger(logName, filePath, dayRelay);
         logger.info(s, o);
     }
 
@@ -128,7 +129,7 @@ public class LoggerManager {
     }
 
     protected static String getFilePattern(String logName, String filePath){
-        return filePath + String.format("/-%d{yyyy-MM-dd}.log", logName);
+        return filePath + File.separator + logName+"-%d{yyyy-MM-dd}.log";
     }
 
     protected static String getFilePath(String fileName){
