@@ -119,7 +119,7 @@
         var password = document.getElementById('password').value;
         var url = '/userLogin?username=' + encodeURIComponent(username) + '&password=' + encodeURIComponent(password);
         fetch(url)
-            .then(response => response.toString())
+            .then(response => response.json())
             .then(data => {
                 alert(data);
                 console.log(data); // 处理响应数据
