@@ -1,11 +1,13 @@
 package onions.logger;
 
+import ch.qos.logback.classic.Level;
+
 public class JLogger{
 
 
 
-    public static void setLoggerLevel(){
-
+    public static void setLoggerLevel(Level level){
+        LoggerManager.setLevel(level);
     }
 
     /**

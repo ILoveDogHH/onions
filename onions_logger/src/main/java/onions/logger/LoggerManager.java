@@ -19,6 +19,20 @@ public class LoggerManager {
     private static final String SYSTEM_PATH = System.getProperty ("user.dir");
 
     private static final String LOG_PATH = SYSTEM_PATH + File.separator + "log";
+
+   protected static void setLevel(Level level){
+       // 获取LoggerContext
+       LoggerContext loggerContext = (LoggerContext) LoggerFactory.getILoggerFactory();
+
+       // 获取根日志器
+       Logger rootLogger = loggerContext.getLogger(Logger.ROOT_LOGGER_NAME);
+
+       // 设置根日志器的级别为INFO
+       rootLogger.setLevel(level);
+   }
+
+
+
     /**
      * 输出到debug log
      * @param s
@@ -71,10 +85,9 @@ public class LoggerManager {
      */
     protected static void writeLoggerWithDay(String logName, String filePath, int dayRelay,String s, Object... o){
         Logger logger = (Logger) LoggerFactory.getLogger(getLoggerName(logName));
-        if(logger == null){
+        if(logger.getLevel() == null){
             logger = createLogger(logName, filePath, dayRelay);
         }
-        logger = createLogger(logName, filePath, dayRelay);
         logger.info(s, o);
     }
 
@@ -112,8 +125,8 @@ public class LoggerManager {
 
         // 获取或创建 Logger
         Logger dynamicLogger = context.getLogger(getLoggerName(logName));
-        dynamicLogger.addAppender(fileAppender);
         dynamicLogger.setLevel(Level.INFO);
+        dynamicLogger.addAppender(fileAppender);
         return dynamicLogger;
     }
 

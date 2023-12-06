@@ -11,7 +11,7 @@
     <appender name="infoAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>info.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>logs/info.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>info.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <maxFileSize>100MB</maxFileSize>
         </rollingPolicy>
 
@@ -25,7 +25,7 @@
     <appender name="cronAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>cron.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>logs/cron.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>cron.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <maxFileSize>100MB</maxFileSize>
         </rollingPolicy>
 
@@ -41,7 +41,7 @@
     <appender name="errorAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>error.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>logs/error.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>error.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <maxFileSize>100MB</maxFileSize>
         </rollingPolicy>
 
@@ -53,32 +53,30 @@
 
 
     <!-- 特定的logger用于ERROR级别的日志 -->
-    <logger name="errorLogger" level="ERROR" additivity="false">
+    <logger name="errorLogger" additivity="false">
         <appender-ref ref="errorAppender"/>
         <appender-ref ref="consoleAppender"/>
     </logger>
 
-    <logger name="infoLogger" level="INFO" additivity="false">
+    <logger name="infoLogger" additivity="false">
         <appender-ref ref="infoAppender"/>
         <appender-ref ref="consoleAppender"/>
     </logger>
 
-    <logger name="cronLogger" level="INFO" additivity="false">
+    <logger name="cronLogger" additivity="false">
         <appender-ref ref="cronAppender"/>
         <appender-ref ref="consoleAppender"/>
     </logger>
 
-    <logger name="debugLogger" level="DEBUG" additivity="false">
+    <logger name="debugLogger" additivity="false">
         <appender-ref ref="consoleAppender"/>
     </logger>
 
 
     <!-- 只有一个root标签，设置为捕获最低级别的日志 -->
     <root level="ERROR">
-        <appender-ref ref="debugLogger"/>
-        <appender-ref ref="infoLogger"/>
-        <appender-ref ref="cronLogger"/>
-        <appender-ref ref="errorLogger"/>
+
     </root>
+
 
 </configuration>
