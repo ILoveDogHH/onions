@@ -74,7 +74,7 @@
 
 
     <!-- 只有一个root标签，设置为捕获最低级别的日志 -->
-    <root level="ERROR">
+    <root level="DEBUG">
 
     </root>
 

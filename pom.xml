@@ -7,7 +7,7 @@
     <groupId>onions</groupId>
     <artifactId>onions_chat</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0-SSHONAPT</version>
     <modules>
         <module>onions_logger</module>
         <module>onions_server</module>
@@ -22,6 +22,47 @@
     </parent>
 
 
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+
+
+        <version-fastjson>1.2.66</version-fastjson>
+        <version-onions-logger>1.0.1</version-onions-logger>
+        <version-onions-server>1.0.1</version-onions-server>
+        <version-redisson>3.13.0</version-redisson>
+    </properties>
+
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+            <!-- 其他插件配置 -->
+        </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <!-- 这里可以添加更多的自定义配置 -->
+            </resource>
+        </resources>
+
+
+
+    </build>
 
 
 </project>

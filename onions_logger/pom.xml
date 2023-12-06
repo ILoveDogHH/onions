@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>onions_logger</artifactId>
+    <version>${version-onions-logger}</version>
 
 
     <dependencies>
@@ -18,4 +19,6 @@
             <artifactId>spring-boot-starter-logging</artifactId>
         </dependency>
     </dependencies>
+
+
 </project>

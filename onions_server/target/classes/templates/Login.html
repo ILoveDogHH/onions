@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>聊天登录</title>
+    <script>
+        function showRegisterForm() {
+            document.getElementById("loginForm").style.display = "none";
+            document.getElementById("registerForm").style.display = "block";
+        }
+
+        function showLoginForm() {
+            document.getElementById("loginForm").style.display = "block";
+            document.getElementById("registerForm").style.display = "none";
+        }
+    </script>
     <style>
         body, html {
             height: 100%;
@@ -91,16 +102,48 @@
 <div class="background">
     <div class="login-container">
         <div class="login-logo"></div>
-        <form class="login-form" action="/userLogin">
-            <input type="text" class="login-input"  name = "username" placeholder="账号">
-            <input type="password" class="login-input" name = "password" placeholder="密码">
+        <input type="text" class="login-input" id="username" placeholder="账号">
+        <input type="password" class="login-input" id="password" placeholder="密码">
             <div class="button-container">
-                <button type="submit" class="login-btn" >登录</button>
-                <button type="button" class="register-btn" >注册</button>
+                <button type="button" class="login-btn" onclick="userLogin()" >登录</button>
+                <button type="button" class="register-btn" onclick="userRegister()">注册</button>
             </div>
-        </form>
     </div>
 </div>
+
+
+
+<script>
+    function userLogin() {
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+        var url = '/userLogin?username=' + encodeURIComponent(username) + '&password=' + encodeURIComponent(password);
+        fetch(url)
+            .then(response => response.toString())
+            .then(data => {
+                alert(data);
+                console.log(data); // 处理响应数据
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+
+    function userRegister() {
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+        var url = '/userRegister?username=' + encodeURIComponent(username) + '&password=' + encodeURIComponent(password);
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data); // 处理响应数据
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+</script>
 
 </body>
 </html>

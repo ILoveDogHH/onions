@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>onions_server</artifactId>
+    <version>${version-onions-server}</version>
 
 
 
@@ -34,9 +35,20 @@
         <dependency>
             <groupId>org.redisson</groupId>
             <artifactId>redisson</artifactId>
-            <version>3.13.0</version>
+            <version>${version-redisson}</version>
         </dependency>
 
+        <dependency>
+            <artifactId>onions_logger</artifactId>
+            <groupId>onions</groupId>
+            <version>${version-onions-logger}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${version-fastjson}</version>
+        </dependency>
 
     </dependencies>
 
