@@ -1,5 +1,4 @@
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
-
     <!-- 控制台Appender用于DEBUG级别日志 -->
     <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
@@ -14,7 +13,6 @@
             <fileNamePattern>info.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <maxFileSize>100MB</maxFileSize>
         </rollingPolicy>
-
         <!-- 添加的编码器部分 -->
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
@@ -28,7 +26,6 @@
             <fileNamePattern>cron.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <maxFileSize>100MB</maxFileSize>
         </rollingPolicy>
-
         <!-- 添加的编码器部分 -->
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
@@ -44,7 +41,6 @@
             <fileNamePattern>error.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <maxFileSize>100MB</maxFileSize>
         </rollingPolicy>
-
         <!-- 添加的编码器部分 -->
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
@@ -55,17 +51,14 @@
     <!-- 特定的logger用于ERROR级别的日志 -->
     <logger name="errorLogger" additivity="false">
         <appender-ref ref="errorAppender"/>
-        <appender-ref ref="consoleAppender"/>
     </logger>
 
     <logger name="infoLogger" additivity="false">
         <appender-ref ref="infoAppender"/>
-        <appender-ref ref="consoleAppender"/>
     </logger>
 
     <logger name="cronLogger" additivity="false">
         <appender-ref ref="cronAppender"/>
-        <appender-ref ref="consoleAppender"/>
     </logger>
 
     <logger name="debugLogger" additivity="false">
@@ -73,10 +66,9 @@
     </logger>
 
 
-    <!-- 只有一个root标签，设置为捕获最低级别的日志 -->
-    <root level="INFO">
-
+<!--    &lt;!&ndash; 只有一个root标签，设置为捕获最低级别的日志 &ndash;&gt;-->
+    <root level="DEBUG">
+        <AppenderRef ref="consoleAppender" />
     </root>
-
 
 </configuration>

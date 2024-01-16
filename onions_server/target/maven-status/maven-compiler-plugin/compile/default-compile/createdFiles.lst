@@ -1,7 +1,12 @@
+onions\dao\UactDao.class
+onions\service\UactService.class
 onions\utils\RedissionUtil.class
-onions\controller\Login.class
 onions\config\RedissionConfig.class
 onions\resultApi\ResultApi.class
 onions\service\LoginService.class
 onions\dao\LoginDao.class
 onions\Main.class
+onions\controller\Login.class
+onions\entity\UAct.class
+onions\controller\UactController.class
+onions\entity\UAct$UActId.class

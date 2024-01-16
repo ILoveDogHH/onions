@@ -16,6 +16,11 @@ import java.io.Serializable;
 @IdClass(UAct.UActId.class)
 public class UAct implements Serializable {
 
+
+	public UAct(){
+
+	}
+
 	private static final long serialVersionUID =  1L;
 
     @Id
@@ -40,7 +45,11 @@ public class UAct implements Serializable {
    	@Column(name = "avalue" )
 	private String avalue;
 
-	public class UActId implements Serializable {
+	public static  class UActId implements Serializable {
+
+		public UActId(){
+
+		}
 
 	    @Id
 	   	@Column(name = "aid" )

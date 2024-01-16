@@ -33,7 +33,7 @@
 
         <version-onions>1.1.0</version-onions>
         <version-fastjson>1.2.66</version-fastjson>
-        <version-onions-logger>1.0.1</version-onions-logger>
+        <version-onions-logger>1.0.2</version-onions-logger>
         <version-onions-server>1.0.1</version-onions-server>
         <version-onions-db>1.0.1</version-onions-db>
         <version-redisson>3.13.0</version-redisson>
