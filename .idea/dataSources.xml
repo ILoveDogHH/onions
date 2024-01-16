@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="p16" uuid="afdf7470-5670-48b8-85bd-a067cc98f90a">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://outside-dev-main.jedi-games.com:3306/p16_user_dev</jdbc-url>
+    </data-source>
+  </component>
+</project>

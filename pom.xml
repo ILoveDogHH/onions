@@ -8,9 +8,11 @@
     <artifactId>onions_chat</artifactId>
     <packaging>pom</packaging>
     <version>${version-onions}</version>
+
     <modules>
         <module>onions_logger</module>
         <module>onions_server</module>
+        <module>onions_db</module>
     </modules>
 
 
@@ -33,6 +35,7 @@
         <version-fastjson>1.2.66</version-fastjson>
         <version-onions-logger>1.0.1</version-onions-logger>
         <version-onions-server>1.0.1</version-onions-server>
+        <version-onions-db>1.0.1</version-onions-db>
         <version-redisson>3.13.0</version-redisson>
     </properties>
 
