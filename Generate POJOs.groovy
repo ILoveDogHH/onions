@@ -120,7 +120,7 @@ def generate(out, className, fields,table) {
     out.println ""
 
     if(isPrimaryKeyUnique){
-        out.println "\tpublic class $innerClassName implements Serializable {"
+        out.println "\tpublic static class $innerClassName implements Serializable {"
         fields.each() {
             if(it.isId){
                 out.println ""

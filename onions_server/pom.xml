@@ -77,6 +77,12 @@
         </dependency>
 
 
+        <dependency>
+            <groupId>io.github.ck-jesse</groupId>
+            <artifactId>l2cache-core</artifactId>
+            <version>1.0.35</version>
+        </dependency>
+
     </dependencies>
 
 
