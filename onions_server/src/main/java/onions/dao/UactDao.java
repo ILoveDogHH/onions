@@ -14,16 +14,13 @@ import java.util.List;
 
 @Repository
 @Transactional
+//
 public interface UactDao extends JpaRepository<UAct, UAct.UActId> {
 
 
     @Cacheable(value = "u_act", key = "#uid", sync = true)
     @Query("SELECT u FROM UAct u WHERE u.uid >=:uid")
     List<UAct> getUserByLimit(@Param("uid")int uid);
-
-
-
-
 
 
 
